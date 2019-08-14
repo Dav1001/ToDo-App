@@ -1,0 +1,9 @@
+<section class="main">
+  <div class="toogle-view" *ngIf="(todos$ | async).length > 0">
+    <input class="toggle-all" type="checkbox" [formControl]="checkField">
+    <label (click)="toggleAll()">Mark all as complete</label>
+  </div>
+  <ul class="todo-list">
+    <app-todo [todo]="todo" *ngFor="let todo of (todos$ | async)"></app-todo>
+  </ul>
+</section>

@@ -1,0 +1,27 @@
+<footer class="footer" *ngIf="showFooter">
+  <span class="todo-count">{{ countTodos }} items left</span>
+  <ul class="filters">
+    <li>
+      <a
+        [routerLink]="['/']"
+        [class.selected]="(currentFilter$ | async) === 'show-all'">
+        All
+      </a>
+    </li>
+    <li>
+      <a
+        [routerLink]="['/','active']"
+        [class.selected]="(currentFilter$ | async) === 'show-active'">
+        Active
+      </a>
+    </li>
+    <li>
+      <a
+        [routerLink]="['/','completed']"
+        [class.selected]="(currentFilter$ | async) === 'show-completed'">
+        Completed
+      </a>
+    </li>
+  </ul>
+  <button class="clear-completed" (click)="clearCompleted()">Clear completed</button>
+</footer>
